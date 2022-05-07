@@ -14,9 +14,14 @@ public class IndexController {
         this.userService = userService;
     }
 
+    @GetMapping("")
+    public String login() {
+        return "login";
+    }
 
     @GetMapping("/")
     public String indexPage() {
         return "Hello!";
     }
+
 }

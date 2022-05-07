@@ -19,7 +19,5 @@ public interface UserService extends UserDetailsService {
 
     User removeUser(long id);
 
-    List<Role> findAllRoles();
-
-    boolean saveUser(User user, BindingResult bindingResult, Model model);
+    User getByName(String username);
 }

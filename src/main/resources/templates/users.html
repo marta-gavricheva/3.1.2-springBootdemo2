@@ -25,12 +25,12 @@
     </thead>
     <tbody>
     <tr th:each="user : ${users}">
-          <td><a th:href="@{'/new' + ${user.id}}" th:utext="${user.id}">UserId</a></td>
+        <td><a th:href="@{'/new' + ${user.id}}" th:utext="${user.id}">UserId</a></td>
         <td th:text="${user.userName}"/>
         <td th:text="${user.email}"/>
         <td th:text="${user.password}"/>
         <td th:text="${user.roles}"/>
-               <td>
+        <td>
             <form th:action="@{'admin/edit/' + ${user.id}}">
                 <input type="submit" class="buttonEdit" value="Edit"/>
 
@@ -47,7 +47,9 @@
     </tbody>
 </table>
 <tr>
+    <form action="/logout" method="POST">
+        <button type="submit">Logout</button>
+    </form>
 
 </tr>
 </body>
-</html>

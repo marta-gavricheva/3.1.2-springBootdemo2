@@ -35,12 +35,21 @@
                 <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password error</div>
             </td>
         </tr>
+        <br/>
+
+        <input th:type="checkbox" th:id="2" th:name="ADMIN" th:value="ROLE_ADMIN">
+        <label th:for="ADMIN">Admin</label>
+        <input th:type="checkbox" th:id="1" th:name="USER" th:value="ROLE_USER">
+        <label th:for="USER">User </label>
         <tr>
             <td>
                 <input type="submit" class="buttonEdit" value="Update user"/>
             </td>
         </tr>
     </table>
+</form>
+<form action="/logout" method="POST">
+    <button type="submit">Logout</button>
 </form>
 </body>
 </html>

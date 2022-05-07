@@ -1,19 +1,19 @@
 package com.example.springBootdemo2.dao;
 
+import com.example.springBootdemo2.model.Role;
 import com.example.springBootdemo2.model.User;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+import java.util.Collections;
 import java.util.List;
 
 
-
-
-@Component
-@Transactional
+@Repository
 public class UserDaoImpl implements UserDao {
 
 
@@ -32,6 +32,7 @@ public class UserDaoImpl implements UserDao {
         entityManager.persist(user);
 
     }
+
 
     //updade user
     @Override
@@ -56,11 +57,11 @@ public class UserDaoImpl implements UserDao {
 
     }
 
-   @Override
-   public User findByUserName(String userName){
-       TypedQuery<User> query = entityManager.createQuery("select u from User u where u.userName =:username", User.class);
-       query.setParameter("username",userName);
-       return query.getResultList().stream().findAny().orElse(null);
-   }
+    @Override
+    public User getByName(String userName) {
+        TypedQuery<User> query = entityManager.createQuery("select u from User u where u.userName =:username", User.class);
+        query.setParameter("username", userName);
+        return query.getResultList().stream().findAny().orElse(null);
+    }
 
 }

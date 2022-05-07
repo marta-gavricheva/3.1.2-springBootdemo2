@@ -5,10 +5,6 @@ import com.example.springBootdemo2.model.User;
 import java.util.List;
 
 public interface UserDao {
-
-
-    User findByUserName(String userName);
-
     List<User> getAllUsers();
 
     void addUser(User user);
@@ -18,4 +14,6 @@ public interface UserDao {
     User getUserId(long id);
 
     User removeUser(long id);
+
+    User getByName(String username);
 }

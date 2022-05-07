@@ -1,11 +1,10 @@
-package com.example.springBootdemo2.dao;
+package com.example.springBootdemo2.service;
 
 import com.example.springBootdemo2.model.Role;
 
 import java.util.List;
-import java.util.Set;
 
-public interface RoleDao {
+public interface RoleService {
 
     List<Role> findAll();
 
@@ -14,6 +13,4 @@ public interface RoleDao {
     void add(Role role);
 
     Role getById(int id);
-
-
 }
