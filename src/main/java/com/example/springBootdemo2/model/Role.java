@@ -4,8 +4,7 @@ package com.example.springBootdemo2.model;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -19,21 +18,17 @@ public class Role implements GrantedAuthority {
     private String name;
 
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "roles")
+    @ManyToMany(fetch =  FetchType.LAZY ,mappedBy = "roles")
     private Set<User> users;
 
-
-    public Role() {
+    public Set<User> getUsers() {
+        return this.users;
     }
 
-    public Role(String name) {
-        this.name = name;
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
-    public Role(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 
     public Long getId() {
         return id;
